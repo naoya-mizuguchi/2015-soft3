@@ -1,0 +1,14 @@
+#! /usr/bin/env python
+import roslib; roslib.load_manifest('beginner_tutorials')
+import rospy
+import actionlib
+from beginner_tutorials.msgs import *
+
+class DoDishesServer:
+    def __init__(self):
+        self.server = actionlib.SimpleActionServer('do_dishes',DoDishesAction, self.execute, False)
+        self.server.start()
+
+    def execute(self, goal):
+        # Do lots of awesome groundbreaking roobot stuff here
+        print "Requesting"
